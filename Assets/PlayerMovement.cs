@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody))]
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField]
@@ -20,7 +21,7 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         moveDirection = MoveInput().normalized;
-        transform.position += moveDirection * moveSpeed * Time.deltaTime;
+        rb.velocity = (moveDirection * moveSpeed) + (Vector3.up * rb.velocity.y);
         transform.LookAt(transform.position + moveDirection);
 
         if (Input.GetKeyDown(KeyCode.Space))
@@ -57,5 +58,10 @@ public class PlayerMovement : MonoBehaviour
         }
 
         return output;
+    }
+
+    public void IncreaseSpeed(float multiplier)
+    {
+        moveSpeed *= multiplier;
     }
 }
