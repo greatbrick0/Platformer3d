@@ -27,6 +27,7 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            AudioSingleton.Instance.Play("JumpBump");
         }
         if (Input.GetKeyUp(KeyCode.Space) && rb.velocity.y > -1.0f)
         {
@@ -63,5 +64,6 @@ public class PlayerMovement : MonoBehaviour
     public void IncreaseSpeed(float multiplier)
     {
         moveSpeed *= multiplier;
+        AudioSingleton.Instance.Play("SpeedBoostCollect");
     }
 }

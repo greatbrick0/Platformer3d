@@ -10,6 +10,7 @@ public class CoinTracker : MonoBehaviour
     public void AddCoins(int amount)
     {
         coinCount += Mathf.Max(0, amount);
+        AudioSingleton.Instance.Play("CoinCollect");
     }
 
     public bool SpendCoins(int amount)
