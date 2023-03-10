@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class VectorFinder : MonoBehaviour
+public class VectorFinder
 {
     public enum Direction {
         Upwards,
@@ -13,6 +13,7 @@ public class VectorFinder : MonoBehaviour
         JumpForward
     }
 
+    [HideInInspector]
     public Direction direction = Direction.DoubleForward;
 
     public Vector3 FindVector()
