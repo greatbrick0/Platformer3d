@@ -13,11 +13,14 @@ public class AudioClipDict : MonoBehaviour
     {
         foreach (Sound ii in sounds)
         {
-            ii.source = gameObject.AddComponent<AudioSource>();
-            ii.source.clip = ii.clip;
-            ii.source.volume = ii.volume;
-            ii.source.pitch = ii.pitch;
-            clipDict.Add(ii.name, ii);
+            if (!clipDict.ContainsKey(ii.name))
+            {
+                ii.source = gameObject.AddComponent<AudioSource>();
+                ii.source.clip = ii.clip;
+                ii.source.volume = ii.volume;
+                ii.source.pitch = ii.pitch;
+                clipDict.Add(ii.name, ii);
+            }
         }
     }
 }

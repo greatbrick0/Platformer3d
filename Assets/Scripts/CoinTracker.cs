@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class CoinTracker : MonoBehaviour
 {
-    [field: SerializeField]
-    public int coinCount { get; private set; } = 0;
+    [SerializeField]
+    public int coinCount = 0;
 
     public void AddCoins(int amount)
     {

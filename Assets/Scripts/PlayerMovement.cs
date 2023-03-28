@@ -66,4 +66,14 @@ public class PlayerMovement : MonoBehaviour
         moveSpeed *= multiplier;
         AudioSingleton.Instance.Play("SpeedBoostCollect");
     }
+
+    public float GetMoveSpeed()
+    {
+        return moveSpeed;
+    }
+
+    public void SetMoveSpeed(float newSpeed)
+    {
+        moveSpeed = newSpeed;
+    }
 }
